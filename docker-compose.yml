@@ -1,0 +1,61 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - '4369:4369'
+      - '5672:5672'
+      - '25672:25672'
+      - '15672:15672'
+    volumes:
+      - 'rabbitmq_data:/bitnami'
+  postgres-compose:
+    image: postgres
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "Postgres2019!"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/eduardo/postgres:/var/lib/postgresql/data
+  pgadmin-compose:
+      image: dpage/pgadmin4
+      environment:
+        PGADMIN_DEFAULT_EMAIL: "rsoares.eduardo@gmail.com"
+        PGADMIN_DEFAULT_PASSWORD: "PgAdmin2019!"
+      ports:
+        - "16543:80"
+      depends_on:
+        - postgres-compose
+      links:
+        - postgres-compose
+  api_rest:
+    build: API_REST
+    links:
+      - rabbitmq
+      - postgres-compose
+    ports:
+      - 5000:5000
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "Postgres2019!"
+      POSTGRES_PORT: "5432"
+      POSTGRES_HOST: "postgres-compose"
+      POSTGRES_DB: "postgres"
+      QUEUE_SERVER: "rabbitmq"
+    depends_on:
+      - rabbitmq
+      - postgres-compose
+  worker_vad:
+    build: worker_vad
+    environment:
+      NUM_WORKERS: "6"
+      QUEUE_SERVER: "rabbitmq"
+    links:
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+volumes:
+  rabbitmq_data:
+    driver: local
