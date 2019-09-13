@@ -1,6 +1,7 @@
 from flask import Flask, request, flash, redirect
 import pika
 import os
+import json
 from DAO.connection import Connection
 app = Flask(__name__)
 
@@ -16,11 +17,11 @@ def vad():
             connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
             channel = connection.channel()
 
-            channel.queue_declare(queue='vad')
+            channel.queue_declare(queue='vad', durable=True)
             db_conn = Connection()
             oid = db_conn.insert_jobs(type='vad', status='new', file=file.read())
             message = {'type': 'vad', 'status': 'new', 'oid': oid}
-            channel.basic_publish(exchange='', routing_key='vad', body=str(message))
+            channel.basic_publish(exchange='', routing_key='vad', body=json.dumps(message))
             connection.close()
             return 'Done'
         else:

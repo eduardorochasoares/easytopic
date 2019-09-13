@@ -1,1 +1,3 @@
+webrtcvad
 pika
+psycopg2
