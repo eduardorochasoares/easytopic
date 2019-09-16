@@ -27,10 +27,10 @@ def callback(ch, method, properties, body):
 
         conn = Connection()
         try:
-            conn.insert_jobs('vad', 'done', bytes(json.dumps(data)))
+            conn.insert_jobs('vad', 'done', data)
         except:
             LOGGER.info('Error Inserting')
-            conn.insert_jobs('vad', 'done', bytes(json.dumps(data)))
+
 
     except:
         logging.info('error')

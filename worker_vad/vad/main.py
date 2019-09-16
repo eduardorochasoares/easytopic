@@ -4,7 +4,8 @@ import contextlib
 import sys
 import wave
 import tempfile
-
+import traceback
+import numpy as np
 
 _mode = 1
 
@@ -24,7 +25,7 @@ def read_wave(path):
             pcm_data = wf.readframes(wf.getnframes())
             return pcm_data, sample_rate
     except Exception as e:
-        print(e, flush=True)
+        print(traceback.format_exc())
 
 
 def write_wave(path, audio, sample_rate):
@@ -137,8 +138,13 @@ def vad_collector(sample_rate, frame_duration_ms,
 def main(file):
     with tempfile.NamedTemporaryFile(mode='w+b', suffix='.wav') as fp:
         try:
-            fp.write(file)
 
+            wf = wave.open(fp, 'w')
+            wf.setnchannels(1)
+            wf.setsampwidth(2)
+            wf.setframerate(16000)
+            wf.writeframes(np.frombuffer(file, dtype=np.uint8))
+            wf.close()
             audio, sample_rate = read_wave(fp.name)
             vad = webrtcvad.Vad(_mode)
             frames = frame_generator(30, audio, sample_rate)
@@ -148,8 +154,8 @@ def main(file):
             for i, segment in enumerate(segments):
                 data[i] = segment
 
-            return data
+            return bytes(str(data), encoding='utf8')
         except Exception as e:
-            print(e, flush=True)
+            print(traceback.format_exc())
 
 

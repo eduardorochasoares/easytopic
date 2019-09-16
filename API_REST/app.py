@@ -25,8 +25,7 @@ def vad():
             connection.close()
             return 'Done'
         else:
-            flash('Invalid file')
-            return redirect(request.url)
+            return 'Invalid file'
 
 
 @app.route('/asr', methods=['POST'])
