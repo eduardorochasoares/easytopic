@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea4974a3-7968-40cd-a973-dd53b303f77f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/worker_low_level_features/extract_prosodic/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_REST/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_REST/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_vad/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/worker_vad/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worker_vad/vad/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_vad/vad/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worker_vad/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_vad/worker.py" afterDir="false" />
     </list>
@@ -13,6 +13,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="architecture_topic_segmentation" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -29,10 +32,11 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/worker_vad" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/worker_low_level_features" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/worker_low_level_features" />
       <recent name="$PROJECT_DIR$/worker_vad" />
     </key>
   </component>
@@ -48,7 +52,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.worker">
+    <configuration name="worker" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="architecture_topic_segmentation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/worker_low_level_features" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/worker_low_level_features/worker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings>
@@ -59,6 +85,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.worker" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -80,6 +107,8 @@
       <workItem from="1568343368738" duration="3936000" />
       <workItem from="1568593573068" duration="2487000" />
       <workItem from="1568596589933" duration="4443000" />
+      <workItem from="1569160572509" duration="1169000" />
+      <workItem from="1569163181647" duration="23473000" />
     </task>
     <servers />
   </component>
@@ -98,5 +127,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/architecture_topic_segmentation$worker.coverage" NAME="worker Coverage Results" MODIFIED="1569189676903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/worker_low_level_features" />
   </component>
 </project>

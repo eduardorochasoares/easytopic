@@ -6,6 +6,7 @@ import wave
 import tempfile
 import traceback
 import numpy as np
+import json
 
 _mode = 1
 
@@ -123,7 +124,8 @@ def vad_collector(sample_rate, frame_duration_ms,
             if num_unvoiced > 0.9 * ring_buffer.maxlen:
                 sys.stdout.write('-(%s)' % (frame.timestamp + frame.duration))
                 triggered = False
-                yield b''.join([f.bytes for f in voiced_frames])
+                yield {'bytes': b''.join([f.bytes for f in voiced_frames]), 'timestamp': frame.timestamp,
+                       'duration':  frame.duration}
                 ring_buffer.clear()
                 voiced_frames = []
     if triggered:
@@ -132,7 +134,8 @@ def vad_collector(sample_rate, frame_duration_ms,
     # If we have any leftover voiced audio when we run out of input,
     # yield it.
     if voiced_frames:
-        yield b''.join([f.bytes for f in voiced_frames])
+        yield {'bytes': b''.join([f.bytes for f in voiced_frames]), 'timestamp': frame.timestamp,
+               'duration':  frame.duration}
 
 
 def main(file):

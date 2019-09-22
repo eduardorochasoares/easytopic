@@ -19,23 +19,31 @@ def callback(ch, method, properties, body):
         file = conn.get_file(oid=oid)
         try:
 
-            data = main(file.tobytes())
-            print(data,  flush=True)
+            data = main(file.tobytes())  # calls the VAD algorithm
+            # print(data,  flush=True)
 
         except Exception as e:
-            print(e, flush=True)
+            logging.debug('Connection Error %s' % e)
 
         conn = Connection()
         try:
-            conn.insert_jobs('vad', 'done', data)
-        except:
-            LOGGER.info('Error Inserting')
+            oid = conn.insert_jobs('vad', 'done', data)
+            message = {'type': 'low_level_features', 'status': 'new', 'oid': oid}
+            connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
+            channel = connection.channel()
+
+            channel.queue_declare(queue='low_level_features', durable=True)
+            channel.basic_publish(exchange='', routing_key='low_level_features', body=json.dumps(message))
+
+
+        except Exception as e:
+            LOGGER.info('Error Inserting % ' % e)
 
 
     except:
         logging.info('error')
 
-    print(" [x] Done")
+    print(" [x] Done", flush=True)
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 

@@ -61,6 +61,19 @@ services:
       - rabbitmq
     depends_on:
       - rabbitmq
+  worker_low_level_features:
+    build: worker_low_level_features
+    environment:
+      NUM_WORKERS: "6"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "Postgres2019!"
+      POSTGRES_PORT: "5432"
+      POSTGRES_HOST: "postgres-compose"
+      POSTGRES_DB: "postgres"
+      QUEUE_SERVER: "rabbitmq"
+    links:
+      - rabbitmq
+
 volumes:
   rabbitmq_data:
     driver: local
