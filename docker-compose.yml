@@ -73,6 +73,19 @@ services:
       QUEUE_SERVER: "rabbitmq"
     links:
       - rabbitmq
+  audio_extractor:
+    build: audio_extractor
+    environment:
+      NUM_WORKERS: "6"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "Postgres2019!"
+      POSTGRES_PORT: "5432"
+      POSTGRES_HOST: "postgres-compose"
+      POSTGRES_DB: "postgres"
+      QUEUE_SERVER: "rabbitmq"
+    links:
+      - rabbitmq
+
 
 volumes:
   rabbitmq_data:
