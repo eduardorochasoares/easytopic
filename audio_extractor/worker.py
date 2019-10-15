@@ -6,6 +6,7 @@ import multiprocessing
 import json
 import logging
 from lib.extract_audio import extract
+import threading
 
 
 LOG_FORMAT = ('%(levelname) -10s %(asctime)s %(name) -30s %(funcName) '
@@ -14,21 +15,23 @@ LOGGER = logging.getLogger(__name__)
 
 
 def callback(ch, method, properties, body):
+
     try:
         print(" [x] Received %r" % body, flush=True)
         oid = json.loads(body)['oid']
         print(str(oid) + '!!!???', flush=True)
         conn = Connection()
-        file = conn.get_file(oid=oid)
+        file = conn.get_doc_mongo(file_oid=oid)
 
-        data = extract(file.tobytes())  # calls the audio extract algorithm
+        data = extract(file)  # calls the audio extract algorithm
         # print(data,  flush=True)
 
         conn = Connection()
         try:
+            file_oid = conn.insert_doc_mongo(data)
 
-            oid = conn.insert_jobs('audio_extractor', 'done', data)
-            message = {'type': 'vad', 'status': 'new', 'oid': oid}
+            conn.insert_jobs('audio_extractor', 'done', file_oid)
+            message = {'type': 'vad', 'status': 'new', 'oid': file_oid}
             connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
             channel = connection.channel()
 

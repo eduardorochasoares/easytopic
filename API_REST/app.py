@@ -65,8 +65,9 @@ def extract_audio():
 
             channel.queue_declare(queue='audio_extractor', durable=True)
             db_conn = Connection()
-            oid = db_conn.insert_jobs(type='audio_extractor', status='new', file=file.read())
-            message = {'type': 'audio_extractor', 'status': 'new', 'oid': oid}
+            file_oid = db_conn.insert_doc_mongo(file.read())
+            db_conn.insert_jobs(type='audio_extractor', status='new', file=file_oid)
+            message = {'type': 'audio_extractor', 'status': 'new', 'oid': file_oid}
             channel.basic_publish(exchange='', routing_key='audio_extractor', body=json.dumps(message))
             connection.close()
             return 'Done'

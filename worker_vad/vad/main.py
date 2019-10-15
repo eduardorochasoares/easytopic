@@ -26,7 +26,7 @@ def read_wave(path):
             pcm_data = wf.readframes(wf.getnframes())
             return pcm_data, sample_rate
     except Exception as e:
-        print(traceback.format_exc())
+        print(traceback.format_exc(), flush=True)
 
 
 def write_wave(path, audio, sample_rate):
@@ -154,11 +154,15 @@ def main(file):
             frames = list(frames)
             segments = vad_collector(sample_rate, 30, 300, vad, frames)
             data = {}
+            print(segments, 'collector', flush=True)
             for i, segment in enumerate(segments):
+                #print(segment, flush=True)
                 data[i] = segment
+            print('finish!!!!!', flush=True)
 
-            return bytes(str(data), encoding='utf8')
+            return bytes(str(data), encoding='utf-8')
         except Exception as e:
-            print(traceback.format_exc())
+            print(e, flush=True)
+            print(traceback.format_exc(), flush=True)
 
 

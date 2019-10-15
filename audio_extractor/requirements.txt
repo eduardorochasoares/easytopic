@@ -2,3 +2,4 @@ pika
 psycopg2
 numpy
 scipy
+pymongo

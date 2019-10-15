@@ -18,8 +18,10 @@ def callback(ch, method, properties, body):
         print(" [x] Received %r" % body, flush=True)
         oid = json.loads(body)['oid']
         conn = Connection()
-        file = conn.get_file(oid=oid)
-        result = ast.literal_eval(file.tobytes().decode('utf-8'))
+        #file = conn.get_file(oid)
+        file = conn.get_doc_mongo(file_oid=oid)
+        result = ast.literal_eval(file.decode('utf-8'))
+        print(result, flush=True)
         timestamps = [0]
         duration = []
         pause_duration = []
@@ -37,13 +39,14 @@ def callback(ch, method, properties, body):
             dict_result[count]['pitch'],  dict_result[count]['volume'] = extract(value['bytes'])
             count += 1
 
-        payload = bytes(str(dict_result), encoding='utf8')
+        payload = bytes(str(dict_result), encoding='utf-8')
         conn = Connection()
 
         #  inserts the result of processing in database
-        oid = conn.insert_jobs(type='low_level_features', status='done', file=payload)
+        file_oid = conn.insert_doc_mongo(payload)
+        conn.insert_jobs(type='low_level_features', status='done', file=file_oid)
 
-        message = {'type': 'segmentation', 'status': 'new', 'oid': oid}
+        message = {'type': 'segmentation', 'status': 'new', 'oid': file_oid}
 
         #  post a message on topic_segmentation queue
         connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
@@ -55,7 +58,7 @@ def callback(ch, method, properties, body):
     except Exception as e:
         # print(e, flush=True)
         print('Connection Error %s' % e, flush=True)
-        print(" [x] Done")
+    print(" [x] Done", flush=True)
     ch.basic_ack(delivery_tag=method.delivery_tag)
 
 
@@ -70,6 +73,7 @@ def consume():
             success = True
         except:
             pass
+
 
     channel.queue_declare(queue='low_level_features', durable=True)
     print(' [*] Waiting for messages. To exit press CTRL+C')

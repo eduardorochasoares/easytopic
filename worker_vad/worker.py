@@ -16,19 +16,23 @@ def callback(ch, method, properties, body):
         print(" [x] Received %r" % body, flush=True)
         oid = json.loads(body)['oid']
         conn = Connection()
-        file = conn.get_file(oid=oid)
+        file = conn.get_doc_mongo(file_oid=oid)
         try:
 
-            data = main(file.tobytes())  # calls the VAD algorithm
-            # print(data,  flush=True)
+            data = main(file)  # calls the VAD algorithm
+            # print(data(,  flush=True)
 
         except Exception as e:
+            print('aaaaaaaaaaa', flush=True)
             logging.debug('Connection Error %s' % e)
 
         conn = Connection()
         try:
-            oid = conn.insert_jobs('vad', 'done', data)
-            message = {'type': 'low_level_features', 'status': 'new', 'oid': oid}
+
+            file_oid = conn.insert_doc_mongo(data)
+            #print(file_oid, "aaaaa",  flush=True)
+            conn.insert_jobs('vad', 'done', file_oid)
+            message = {'type': 'low_level_features', 'status': 'new', 'oid': file_oid}
             connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
             channel = connection.channel()
 
@@ -37,10 +41,14 @@ def callback(ch, method, properties, body):
 
 
         except Exception as e:
+            print(e, flush=True)
+
             LOGGER.info('Error Inserting % ' % e)
 
 
-    except:
+    except Exception as e:
+        print(e, flush=True)
+
         logging.info('error')
 
     print(" [x] Done", flush=True)

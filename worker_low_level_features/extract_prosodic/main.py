@@ -23,7 +23,7 @@ def read_wave(path):
             pcm_data = wf.readframes(wf.getnframes())
             return pcm_data, sample_rate
     except Exception as e:
-        print(traceback.format_exc())
+        print(e, flush=True)
 
 def pitch_estimation(filename, sample_rate):
 
@@ -136,4 +136,4 @@ def extract(audio_chunk):
             return pitch if not np.isnan(pitch) else 0, energy if not np.isnan(energy) else 0
 
         except Exception as e:
-            print(traceback.format_exc())
+            print(traceback.format_exc(), flush=True)
