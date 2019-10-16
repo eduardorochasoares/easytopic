@@ -19,7 +19,7 @@ services:
     ports:
       - "15432:5432"
     volumes:
-      - /home/eduardo/teste:/var/lib/postgresql/data
+      - ~/pg:/var/lib/postgresql/data
   pgadmin-compose:
       image: dpage/pgadmin4
       environment:
@@ -126,7 +126,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /home/eduardo/MongoDB:/data/db
+      - ~/MongoDB:/data/db
 
 
 

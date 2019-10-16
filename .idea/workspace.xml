@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea4974a3-7968-40cd-a973-dd53b303f77f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/audio_extractor/lib/extract_audio.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_REST/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_REST/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_low_level_features/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_low_level_features/worker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,6 +115,7 @@
       <workItem from="1570498985523" duration="2189000" />
       <workItem from="1570904759837" duration="40000" />
       <workItem from="1570979017453" duration="7917000" />
+      <workItem from="1571192664836" duration="3829000" />
     </task>
     <servers />
   </component>
