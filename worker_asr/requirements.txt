@@ -1,0 +1,4 @@
+pika
+numpy
+pymongo
+ws4py

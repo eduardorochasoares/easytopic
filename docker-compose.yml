@@ -52,6 +52,7 @@ services:
     depends_on:
       - rabbitmq
       - postgres-compose
+      - mongo
   worker_vad:
     build: worker_vad
     environment:
@@ -68,6 +69,8 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: MongoDB2019!
     links:
       - rabbitmq
+      - postgres-compose
+      - mongo
     depends_on:
       - rabbitmq
   worker_low_level_features:
@@ -86,6 +89,8 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: MongoDB2019!
     links:
       - rabbitmq
+      - mongo
+      - postgres-compose
   audio_extractor:
     build: audio_extractor
     environment:
@@ -102,6 +107,8 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: MongoDB2019!
     links:
       - rabbitmq
+      - mongo
+      - postgres-compose
 
   mongo-express:
     image: mongo-express
@@ -115,6 +122,7 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: MongoDB2019!
     links:
       - mongo
+
     depends_on:
       - mongo
 
@@ -127,8 +135,26 @@ services:
       - "27017:27017"
     volumes:
       - ~/MongoDB:/data/db
+  asr_worker:
+    build: worker_asr
 
 
+    environment:
+      GSTREAM_PORT: 80
+      ASR_SERVER: "asr"
+    links:
+      - rabbitmq
+      - postgres-compose
+      - mongo
+      - asr
+    depends_on:
+      - asr
+  asr:
+    build: asr_server
+    volumes:
+      - ~/kaldi_models:/opt/test/models
+    ports:
+      - "9999:80"
 
 
 volumes:

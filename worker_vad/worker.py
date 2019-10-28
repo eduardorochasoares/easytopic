@@ -30,14 +30,23 @@ def callback(ch, method, properties, body):
         try:
 
             file_oid = conn.insert_doc_mongo(data)
-            #print(file_oid, "aaaaa",  flush=True)
             conn.insert_jobs('vad', 'done', file_oid)
+
+            ## Posts low level features jobs
             message = {'type': 'low_level_features', 'status': 'new', 'oid': file_oid}
             connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
             channel = connection.channel()
 
             channel.queue_declare(queue='low_level_features', durable=True)
             channel.basic_publish(exchange='', routing_key='low_level_features', body=json.dumps(message))
+
+            ## Posts asr jobs
+
+            channel_asr = connection.channel()
+            message_asr = {'type': 'asr', 'status': 'new', 'oid': file_oid}
+
+            channel_asr.queue_declare(queue='asr', durable=True)
+            channel_asr.basic_publish(exchange='', routing_key='asr', body=json.dumps(message_asr))
 
 
         except Exception as e:
