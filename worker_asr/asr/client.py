@@ -6,7 +6,9 @@ import time
 import threading
 import sys
 import urllib
-import Queue
+#import Queue
+from multiprocessing import Queue
+
 import json
 import time
 import os
@@ -88,6 +90,7 @@ class MyClient(WebSocketClient):
         else:
             #print >> sys.stderr, "Received error from server (status %d)" % response['status']
             if 'message' in response:
+                print("Error message:",  response['message'])
                 #print >> sys.stderr, "Error message:",  response['message']
 
 
@@ -113,7 +116,7 @@ def main(file_bytes, rate=3200):
     parser.add_argument('audiofile', help="Audio file to be sent to the server", type=argparse.FileType('rb'), default=sys.stdin)
     args = parser.parse_args()'''
 
-    content_type = args.content_type
+    content_type = ''
     if content_type == '' and args.audiofile.name.endswith(".raw"):
         content_type = "audio/x-raw, layout=(string)interleaved, rate=(int)%d, format=(string)S16LE, channels=(int)1" %(args.rate/2)
 

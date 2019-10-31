@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea4974a3-7968-40cd-a973-dd53b303f77f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/asr_server/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/worker_asr/DAO/connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/worker_asr/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/worker_asr/asr/start_server.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/worker_asr/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/worker_asr/worker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_vad/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_vad/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_asr/asr/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/asr/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_asr/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/worker_asr" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -131,6 +126,9 @@
       <workItem from="1572214169271" duration="3232000" />
       <workItem from="1572218250968" duration="600000" />
       <workItem from="1572219914437" duration="2801000" />
+      <workItem from="1572491826765" duration="333000" />
+      <workItem from="1572495428854" duration="205000" />
+      <workItem from="1572497855936" duration="1449000" />
     </task>
     <servers />
   </component>
