@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ea4974a3-7968-40cd-a973-dd53b303f77f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worker_asr/asr/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/asr/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_asr/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,6 +127,7 @@
       <workItem from="1572491826765" duration="333000" />
       <workItem from="1572495428854" duration="205000" />
       <workItem from="1572497855936" duration="1449000" />
+      <workItem from="1572524178244" duration="1305000" />
     </task>
     <servers />
   </component>

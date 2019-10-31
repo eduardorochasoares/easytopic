@@ -6,8 +6,8 @@ import time
 import threading
 import sys
 import urllib
-#import Queue
-from multiprocessing import Queue
+import queue as Queue
+#from multiprocessing import Queue
 
 import json
 import time
@@ -117,12 +117,12 @@ def main(file_bytes, rate=3200):
     args = parser.parse_args()'''
 
     content_type = ''
-    if content_type == '' and args.audiofile.name.endswith(".raw"):
-        content_type = "audio/x-raw, layout=(string)interleaved, rate=(int)%d, format=(string)S16LE, channels=(int)1" %(args.rate/2)
+    '''if content_type == '' and args.audiofile.name.endswith(".raw"):
+        content_type = "audio/x-raw, layout=(string)interleaved, rate=(int)%d, format=(string)S16LE, channels=(int)1" %(args.rate/2)'''
 
 
 
-    ws = MyClient(file_bytes, uri + '?%s' % (urllib.urlencode([("content-type", content_type)])), byterate=rate)
+    ws = MyClient(file_bytes, uri + '?%s' % (urllib.parse.urlencode([("content-type", content_type)])), byterate=rate)
     ws.connect()
     result = ws.get_full_hyp()
     print(result, flush=True)
