@@ -59,6 +59,8 @@ def consume():
             channel = connection.channel()
             success = True
         except:
+            time.sleep(30)
+
             pass
 
     channel.queue_declare(queue='audio_extractor', durable=True)

@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea4974a3-7968-40cd-a973-dd53b303f77f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/worker_asr/asr/client2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/architecture_topic_segmentation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/architecture_topic_segmentation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_asr/asr/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/asr/client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio_extractor/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/audio_extractor/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_asr/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_asr/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_low_level_features/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_low_level_features/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_vad/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_vad/worker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +38,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -128,6 +137,7 @@
       <workItem from="1572495428854" duration="205000" />
       <workItem from="1572497855936" duration="1449000" />
       <workItem from="1572524178244" duration="1305000" />
+      <workItem from="1572953509750" duration="4446000" />
     </task>
     <servers />
   </component>

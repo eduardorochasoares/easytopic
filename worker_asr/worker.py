@@ -6,7 +6,7 @@ import multiprocessing
 import json
 import logging
 import ast
-from asr.client import main
+from asr.client2 import main
 import threading
 import functools
 
@@ -44,6 +44,7 @@ def do_work(connection, channel, delivery_tag, body):
         for key, value in result.items():
             result = main(value['bytes'])
             count += 1
+            #time.sleep(1)
 
         payload = bytes(str(dict_result), encoding='utf-8')
         conn = Connection()
@@ -92,6 +93,8 @@ def consume():
             channel = connection.channel()
             success = True
         except:
+            time.sleep(30)
+
             pass
 
 

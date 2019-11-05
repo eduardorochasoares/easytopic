@@ -99,6 +99,8 @@ def consume():
             channel = connection.channel()
             success = True
         except:
+            time.sleep(30)
+
             pass
 
 

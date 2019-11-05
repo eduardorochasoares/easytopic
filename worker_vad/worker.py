@@ -74,6 +74,7 @@ def consume():
             channel = connection.channel()
             success = True
         except:
+            time.sleep(30)
             pass
 
     channel.queue_declare(queue='vad', durable=True)

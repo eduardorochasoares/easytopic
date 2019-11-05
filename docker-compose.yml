@@ -162,7 +162,7 @@ services:
   asr:
     build: asr_server
     volumes:
-      - ~/kaldi_models:/opt/test/models
+      - /home/eduardo/kaldi_models:/opt/test/models
     ports:
       - "9999:80"
 
