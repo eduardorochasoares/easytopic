@@ -32,7 +32,6 @@ def main(audio_chunk):
         succes = False
         while not succes:
             try:
-
                 sample_rate = 16000
                 wf = wave.open(fp, 'w')
                 wf.setnchannels(1)
@@ -41,10 +40,10 @@ def main(audio_chunk):
                 wf.writeframes(np.frombuffer(audio_chunk, dtype=np.uint8))
                 wf.close()
                 res = transcribeAudio(fp.name)
-                print(res, flush=True)
+                #print(res, flush=True)
                 res = json.loads(res)
                 if res:
-                    print(res['hypotheses'][0]['utterance'], flush=True)
+                    return res['hypotheses'][0]['utterance']
                     succes = True
             except Exception as e:
                 print('trying again', flush=True)

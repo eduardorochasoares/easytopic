@@ -35,14 +35,13 @@ def do_work(connection, channel, delivery_tag, body):
         result = ast.literal_eval(file.decode('utf-8'))
 
 
-        timestamps = [0]
-        duration = []
-        pause_duration = []
+        #print(result, flush=True)
         count = 0
         dict_result = {}
         previous_duration = 0
         for key, value in result.items():
             result = main(value['bytes'])
+            dict_result[count] = result
             count += 1
             #time.sleep(1)
 
