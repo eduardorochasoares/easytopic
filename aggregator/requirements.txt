@@ -1,0 +1,4 @@
+pika
+psycopg2
+numpy
+pymongo

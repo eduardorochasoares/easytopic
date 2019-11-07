@@ -60,14 +60,14 @@ def do_work(connection, channel, delivery_tag, body):
         file_oid = conn.insert_doc_mongo(payload)
         conn.insert_jobs(type='low_level_features', status='done', file=file_oid, project_id=project_id)
 
-        message = {'type': 'segmentation', 'status': 'new', 'oid': file_oid, 'project_id': project_id}
+        message = {'type': 'aggregator', 'status': 'new', 'oid': file_oid, 'project_id': project_id}
 
         #  post a message on topic_segmentation queue
         connection_out = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
         channel2 = connection_out.channel()
 
-        channel2.queue_declare(queue='segmentation', durable=True)
-        channel2.basic_publish(exchange='', routing_key='segmentation', body=json.dumps(message))
+        channel2.queue_declare(queue='aggregator', durable=True)
+        channel2.basic_publish(exchange='', routing_key='aggregator', body=json.dumps(message))
 
 
     except Exception as e:

@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea4974a3-7968-40cd-a973-dd53b303f77f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/aggregator/DAO/connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggregator/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggregator/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggregator/worker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_REST/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_REST/DAO/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API_REST/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_REST/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/audio_extractor/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/audio_extractor/DAO/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/audio_extractor/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/audio_extractor/worker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_asr/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/DAO/connection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worker_asr/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/worker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_low_level_features/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_low_level_features/DAO/connection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worker_low_level_features/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_low_level_features/worker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_vad/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_vad/DAO/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_vad/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_vad/worker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,20 +35,21 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/aggregator" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/asr_server" />
-      <recent name="$PROJECT_DIR$/worker_asr/asr" />
-      <recent name="$PROJECT_DIR$/audio_extractor" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/aggregator" />
       <recent name="$PROJECT_DIR$/worker_asr" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/worker_low_level_features" />
       <recent name="$PROJECT_DIR$/worker_vad" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/asr_server" />
+      <recent name="$PROJECT_DIR$/worker_asr/asr" />
+      <recent name="$PROJECT_DIR$/audio_extractor" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -145,6 +142,7 @@
       <workItem from="1573083275450" duration="805000" />
       <workItem from="1573084992512" duration="1990000" />
       <workItem from="1573087899831" duration="1104000" />
+      <workItem from="1573090871541" duration="6312000" />
     </task>
     <servers />
   </component>
