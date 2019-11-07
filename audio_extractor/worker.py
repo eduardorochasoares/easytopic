@@ -19,7 +19,10 @@ def callback(ch, method, properties, body):
     try:
         print(" [x] Received %r" % body, flush=True)
         oid = json.loads(body)['oid']
+        project_id = json.loads(body)['project_id']
         print(str(oid) + '!!!???', flush=True)
+        print(str(project_id) + '!!!???', flush=True)
+
         conn = Connection()
         file = conn.get_doc_mongo(file_oid=oid)
 
@@ -30,8 +33,8 @@ def callback(ch, method, properties, body):
         try:
             file_oid = conn.insert_doc_mongo(data)
 
-            conn.insert_jobs('audio_extractor', 'done', file_oid)
-            message = {'type': 'vad', 'status': 'new', 'oid': file_oid}
+            conn.insert_jobs('audio_extractor', 'done', file_oid, project_id)
+            message = {'type': 'vad', 'status': 'new', 'oid': file_oid, 'project_id': project_id}
             connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
             channel = connection.channel()
 

@@ -15,11 +15,12 @@ class Connection:
         self._conn = psycopg2.connect(user=self._user, password=self._password, host=self._host, port=self._port,
                                       database=self._db)
 
-    def insert_jobs(self, type, status, file):
+    def insert_jobs(self, type, status, file, project_id):
 
         cursor = self._conn.cursor()
+
         query = "INSERT INTO jobs (type, status, file_id, project_id) VALUES(%s, %s, %s, %s)  RETURNING oid"
-        cursor.execute(query, (type, status, file, 1))
+        cursor.execute(query, (type, status, file, project_id))
 
         self._conn.commit()
 

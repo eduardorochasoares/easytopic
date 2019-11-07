@@ -51,7 +51,7 @@ def asr():
             return redirect(request.url)
 
 
-@app.route('/extract_audio',  methods=['POST'])
+@app.route('/segmentation',  methods=['POST'])
 def extract_audio():
 
     if request.method == 'POST':
@@ -66,8 +66,8 @@ def extract_audio():
             channel.queue_declare(queue='audio_extractor', durable=True)
             db_conn = Connection()
             file_oid = db_conn.insert_doc_mongo(file.read())
-            db_conn.insert_jobs(type='audio_extractor', status='new', file=file_oid)
-            message = {'type': 'audio_extractor', 'status': 'new', 'oid': file_oid}
+            oid, project_id = db_conn.insert_jobs(type='audio_extractor', status='new', file=file_oid, file_name=file.filename)
+            message = {'type': 'audio_extractor', 'status': 'new', 'oid': file_oid, 'project_id': project_id}
             channel.basic_publish(exchange='', routing_key='audio_extractor', body=json.dumps(message))
             connection.close()
             return 'Done'

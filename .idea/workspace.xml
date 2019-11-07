@@ -3,8 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="ea4974a3-7968-40cd-a973-dd53b303f77f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_asr/asr/client2.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/asr/client2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API_REST/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_REST/DAO/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API_REST/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/API_REST/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio_extractor/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/audio_extractor/DAO/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/audio_extractor/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/audio_extractor/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_asr/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/DAO/connection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/worker_asr/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_asr/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_low_level_features/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_low_level_features/DAO/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_low_level_features/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_low_level_features/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_vad/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_vad/DAO/connection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worker_vad/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_vad/worker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +142,9 @@
       <workItem from="1572953509750" duration="4446000" />
       <workItem from="1572993756899" duration="1456000" />
       <workItem from="1573005622589" duration="2643000" />
+      <workItem from="1573083275450" duration="805000" />
+      <workItem from="1573084992512" duration="1990000" />
+      <workItem from="1573087899831" duration="1104000" />
     </task>
     <servers />
   </component>

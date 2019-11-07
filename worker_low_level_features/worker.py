@@ -28,6 +28,7 @@ def do_work(connection, channel, delivery_tag, body):
     try:
         print(" [x] Received %r" % body, flush=True)
         oid = json.loads(body)['oid']
+        project_id = json.loads(body)['project_id']
         conn = Connection()
         # file = conn.get_file(oid)
         file = conn.get_doc_mongo(file_oid=oid)
@@ -57,9 +58,9 @@ def do_work(connection, channel, delivery_tag, body):
 
         #  inserts the result of processing in database
         file_oid = conn.insert_doc_mongo(payload)
-        conn.insert_jobs(type='low_level_features', status='done', file=file_oid)
+        conn.insert_jobs(type='low_level_features', status='done', file=file_oid, project_id=project_id)
 
-        message = {'type': 'segmentation', 'status': 'new', 'oid': file_oid}
+        message = {'type': 'segmentation', 'status': 'new', 'oid': file_oid, 'project_id': project_id}
 
         #  post a message on topic_segmentation queue
         connection_out = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
@@ -67,6 +68,7 @@ def do_work(connection, channel, delivery_tag, body):
 
         channel2.queue_declare(queue='segmentation', durable=True)
         channel2.basic_publish(exchange='', routing_key='segmentation', body=json.dumps(message))
+
 
     except Exception as e:
         # print(e, flush=True)

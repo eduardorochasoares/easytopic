@@ -15,6 +15,7 @@ def callback(ch, method, properties, body):
     try:
         print(" [x] Received %r" % body, flush=True)
         oid = json.loads(body)['oid']
+        project_id = json.loads(body)['project_id']
         conn = Connection()
         file = conn.get_doc_mongo(file_oid=oid)
         try:
@@ -30,10 +31,10 @@ def callback(ch, method, properties, body):
         try:
 
             file_oid = conn.insert_doc_mongo(data)
-            conn.insert_jobs('vad', 'done', file_oid)
+            conn.insert_jobs('vad', 'done', file_oid, project_id)
 
             ## Posts low level features jobs
-            message = {'type': 'low_level_features', 'status': 'new', 'oid': file_oid}
+            message = {'type': 'low_level_features', 'status': 'new', 'oid': file_oid, 'project_id': project_id }
             connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.environ['QUEUE_SERVER']))
             channel = connection.channel()
 
@@ -43,7 +44,7 @@ def callback(ch, method, properties, body):
             ## Posts asr jobs
 
             channel_asr = connection.channel()
-            message_asr = {'type': 'asr', 'status': 'new', 'oid': file_oid}
+            message_asr = {'type': 'asr', 'status': 'new', 'oid': file_oid, 'project_id': project_id}
 
             channel_asr.queue_declare(queue='asr', durable=True)
             channel_asr.basic_publish(exchange='', routing_key='asr', body=json.dumps(message_asr))

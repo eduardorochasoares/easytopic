@@ -9,7 +9,7 @@ services:
       - '25672:25672'
       - '15672:15672'
     volumes:
-      - 'rabbitmq_data:/bitnami'
+      - ~/rabbitmq_data:/bitnami
   postgres-compose:
     image: postgres
     environment:
@@ -167,6 +167,4 @@ services:
       - "9999:80"
 
 
-volumes:
-  rabbitmq_data:
-    driver: local
+
