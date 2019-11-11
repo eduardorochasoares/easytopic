@@ -49,6 +49,7 @@ def do_work(connection, channel, delivery_tag, body):
             else:
                 dict_result[count]['pause'] = float(value['timestamp']) - previous_duration
 
+            dict_result[count]['init_time'] = float(value['timestamp'])
             previous_duration = float(value['timestamp']) + float(value['duration'])
             dict_result[count]['pitch'], dict_result[count]['volume'] = extract(value['bytes'])
             count += 1

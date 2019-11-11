@@ -82,3 +82,15 @@ class Connection:
         else:
             return None
 
+    def check_job_done(self, project_id):
+        cursor = self._conn.cursor()
+        query = "SELECT file_id, type FROM jobs WHERE project_id = %s AND type = 'aggregator' AND status = 'done'"
+        cursor.execute(query, (project_id,))
+        self._conn.commit()
+        rows = cursor.fetchall()
+        self._conn.close()
+
+        if len(rows) > 0:
+            return True
+        else:
+            return False
