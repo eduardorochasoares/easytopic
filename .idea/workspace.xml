@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea4974a3-7968-40cd-a973-dd53b303f77f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/topic_segmentation_algorithm/DAO/connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topic_segmentation_algorithm/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/topic_segmentation_algorithm/worker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mongo-init.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aggregator/DAO/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/aggregator/DAO/connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aggregator/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/aggregator/worker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic_segmentation_algorithm/data_structures.py" beforeDir="false" afterPath="$PROJECT_DIR$/topic_segmentation_algorithm/data_structures.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic_segmentation_algorithm/document_similarity/data/stopwords_en.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic_segmentation_algorithm/genetic_algorithm/GA.py" beforeDir="false" afterPath="$PROJECT_DIR$/topic_segmentation_algorithm/genetic_algorithm/GA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic_segmentation_algorithm/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/topic_segmentation_algorithm/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/topic_segmentation_algorithm/summary.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker_low_level_features/worker.py" beforeDir="false" afterPath="$PROJECT_DIR$/worker_low_level_features/worker.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,14 +23,14 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/topic_segmentation_algorithm" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1QfcRUF3TVvd0uNS3f3AThwTeMc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/topic_segmentation_algorithm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -150,6 +139,9 @@
       <workItem from="1573087899831" duration="1104000" />
       <workItem from="1573090871541" duration="6312000" />
       <workItem from="1573406833277" duration="19684000" />
+      <workItem from="1574006208702" duration="2027000" />
+      <workItem from="1574008917890" duration="762000" />
+      <workItem from="1574010596131" duration="1360000" />
     </task>
     <servers />
   </component>

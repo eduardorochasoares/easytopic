@@ -20,6 +20,7 @@ services:
       - "15432:5432"
     volumes:
       - ~/pg:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
   pgadmin-compose:
       image: dpage/pgadmin4
       environment:
@@ -31,6 +32,7 @@ services:
         - postgres-compose
       links:
         - postgres-compose
+
   api_rest:
     build: API_REST
     links:
@@ -131,10 +133,12 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: MongoDB2019!
+      MONGO_INITDB_DATABASE: topic_segmentation
     ports:
       - "27017:27017"
     volumes:
       - ~/MongoDB:/data/db
+      - /mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
   asr_worker:
     build: worker_asr
 
