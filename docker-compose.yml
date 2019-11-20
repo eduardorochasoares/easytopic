@@ -166,7 +166,8 @@ services:
   asr:
     build: asr_server
     volumes:
-      - /home/eduardo/kaldi_models:/opt/test/models
+      - ~/kaldi_models:/opt/test/models
+      - ./sample_english_nnet2.yaml:/opt/test/models/sample_english_nnet2.yaml
     ports:
       - "9999:80"
 
@@ -216,4 +217,4 @@ services:
     depends_on:
       - rabbitmq
     volumes:
-      - /home/eduardo/word2vec:/word2vec
+      - ~/word2vec:/word2vec
