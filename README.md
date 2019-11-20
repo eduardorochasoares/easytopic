@@ -75,4 +75,28 @@ gunzip GoogleNews-vectors-negative300.bin.gz
 
 ```
 
+Now, you have downloaded the models required by the architecture, you need to clone or [download](https://github.com/eduardorochasoares/flexsegmentation/master.zip) the repository.
+
+```sh
+
+git clone https://github.com/eduardorochasoares/flexsegmentation
+
+```
+
+If you opted for the download, unzip the file and change into your downloads directory in the `Terminal`. Otherwise, just change into `flexsegmentation's` folder:
+
+```sh
+
+cd flexsegmentation
+
+```
+Lastly, to bring up the architecthure just run the command below. It launches two all containers that compose the architecture.
+
+```sh
+
+docker-compose up
+
+```
+
+
 ## Publications
