@@ -36,8 +36,11 @@ Our architecture is composed of several modules where each one is responsible fo
 * MongoDB: Database used to store the binary files from processing
 
 
-The communication schema is shown bellow:
-![alt text](communication.png)
+The communication schema is shown below:
+![communication](communication.png)
+
+Also, the processing pipeline of a video lecture in our architecture is given by the diagram below:
+![workflow](workflow.png)
 
 ## Requirements
 All you need is [Docker](https://www.docker.com/) to run `easytopic`. To install it, just follow the guide for your OS:
@@ -184,3 +187,12 @@ All jobs done:
 The `topics` object from the output structure is a list of timestamps correspondent to the beginning time of topics of a video lecture.
 
 ## Publications
+
+- [An optimization model for temporal video lecture segmentation using word2vec and acoustic features](https://dl.acm.org/citation.cfm?id=3349548)
+- [Automatic Topic Segmentation for Video Lectures Using Low and High-Level Audio Features
+](https://dl.acm.org/citation.cfm?id=3243096)
+- [An Approach for Automatic Segmentation of Scenes in Educational Videos through the use of Audio Transcription and Semantic Annotation
+](https://dl.acm.org/citation.cfm?id=3126870)
+
+
+
