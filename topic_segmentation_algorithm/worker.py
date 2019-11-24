@@ -186,8 +186,8 @@ def do_work(connection, channel, delivery_tag, body):
             boundaries = ga.run()
         #print(chunks, flush=True)
         print(boundaries, flush=True)
-        topics = dict()
-        topics['topics'] = boundaries
+        topics = {}
+        topics["topics"] = boundaries
         payload = bytes(str(topics), encoding='utf-8')
 
         file_oid = conn.insert_doc_mongo(payload)

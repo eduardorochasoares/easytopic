@@ -70,7 +70,7 @@ def extract_audio():
             message = {'type': 'audio_extractor', 'status': 'new', 'oid': file_oid, 'project_id': project_id}
             channel.basic_publish(exchange='', routing_key='audio_extractor', body=json.dumps(message))
             connection.close()
-            return 'Done'
+            return {'project_id': project_id}
         else:
             flash('Invalid file')
             return redirect(request.url)

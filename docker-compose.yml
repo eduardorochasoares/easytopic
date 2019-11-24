@@ -9,7 +9,7 @@ services:
       - '25672:25672'
       - '15672:15672'
     volumes:
-      - ~/rabbitmq_data:/bitnami
+      - /media/rabbitmq_data:/bitnami
   postgres-compose:
     image: postgres
     environment:
@@ -19,7 +19,7 @@ services:
     ports:
       - "15432:5432"
     volumes:
-      - ~/pg:/var/lib/postgresql/data
+      - /media/pg:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
   pgadmin-compose:
       image: dpage/pgadmin4
@@ -137,8 +137,8 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ~/MongoDB:/data/db
-      - /mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - /media/MongoDB:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
   asr_worker:
     build: worker_asr
 
@@ -166,7 +166,7 @@ services:
   asr:
     build: asr_server
     volumes:
-      - ~/kaldi_models:/opt/test/models
+      - /media/kaldi_models:/opt/test/models
       - ./sample_english_nnet2.yaml:/opt/test/models/sample_english_nnet2.yaml
     ports:
       - "9999:80"
@@ -217,4 +217,4 @@ services:
     depends_on:
       - rabbitmq
     volumes:
-      - ~/word2vec:/word2vec
+      - /media/word2vec:/word2vec
