@@ -98,5 +98,67 @@ docker-compose up
 
 ```
 
+## Pratical example
+So that you can test the easytopic architecture, we provide a very simple example where a HTTP client sends a video lecture for processing by the architecture and waits for processing to finish before printing the result to the terminal.
+
+To run this example, make sure you have follow the instructions from the previous section.
+
+First of all, we going to bring-up the architecture. Open the `Terminal` program in your computer and execute the following commands:
+
+```sh
+
+cd easytopic
+
+docker-compose up
+
+```
+Once the architecture has been initialized and all containers are running, 
+open a new `Terminal` tab and enter the "example" folder.
+
+```sh
+
+cd easytopic/example
+
+```
+
+Before running the script `segment.py` We'll need to install some [python3](https://www.python.org/downloads/) libraries:
+
+
+* [pymongo](https://api.mongodb.com/python/current/)
+* [psycopg2-binary](https://pypi.org/project/psycopg2-binary/)
+* [requests](https://pypi.org/project/requests/)
+
+You can install them simply by running:
+
+```sh
+
+pip3 install -r requeriments
+
+```
+
+Now, we can finally run our example:
+
+```sh
+
+python3 segment.py
+
+```
+ If everything is okay, it should print something like this:
+ 
+```sh
+Sleep before checking again...
+Sleep before checking again...
+Sleep before checking again...
+Sleep before checking again...
+Sleep before checking again...
+Sleep before checking again...
+Job completed: {'topics': [0, 166.77000000000555]}
+Sleep before checking again...
+All jobs done:
+[{'video': 'data/0NgCZKFEmGU.mp4', 'segmentation': {'topics': [0, 166.77000000000555]}}]
+
+```
+
+The `topics` object from the output structure is a list of timestamps correspondent to the beginning time of topics of a video lecture.
 
 ## Publications
