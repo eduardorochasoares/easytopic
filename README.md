@@ -23,7 +23,10 @@ This architecture is derived from my master's thesis and you can check the [Publ
 
 `easytopic` is a software architecture that implements the entire processing pipeline to segment video lectures into topics. The approach implemented by `easytopic` uses only features from the audio track of video lectures to perform segmentation. This makes our approach very versatile that can be applied to different types of video lectures without relying on any resources such as subtitles, slides or textbooks.
 
-![alt text](.easytopic (2).png)
+Our architecture is composed of several modules where each one is responsible for one stage of processing:
+* API REST: Architecture entrypoint where video lectures are sent to be processed.
+*
+![alt text](communication.png)
 
 ## Requirements
 All you need is [Docker](https://www.docker.com/) to run `easytopic`. To install it, just follow the guide for your OS:
