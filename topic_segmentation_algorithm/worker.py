@@ -33,7 +33,7 @@ nltk.download('averaged_perceptron_tagger')
 
 stopwords = None
 googlenews_model_path = '/word2vec/GoogleNews-vectors-negative300.bin'
-stopwords_path = "/word2vec/stopwords_en.txt"
+stopwords_path = "document_similarity/data/stopwords_en.txt"
 docSim = None
 with open(stopwords_path, 'r') as fh:
     stopwords = fh.read().split(",")
