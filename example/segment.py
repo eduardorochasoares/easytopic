@@ -6,6 +6,7 @@ from DAO.postgresql import Postgresql
 import time
 from DAO.mongodb import MongoDB
 import ast
+import argparse
 
 def send_request(lecture):
     return json.loads(requests.post(API_REST_ADDRESS + ENDPOINT, files={'file': open(lecture, 'rb')}).content)['project_id']
@@ -24,9 +25,13 @@ def get_result_file(file_oid):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--server_ip', default='localhost')
+    parser.add_argument('--port', default='5000')
 
+    args = parser.parse_args()
 
-    API_REST_ADDRESS = 'http://localhost:5000'
+    API_REST_ADDRESS = 'http://' + args.server_ip + ':' + args.port
     ENDPOINT = '/segmentation'
     ids = []
     files = glob.glob('data/*.mp4')
