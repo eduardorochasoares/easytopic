@@ -169,7 +169,7 @@ python3 segment.py
 
 ```
 
-or if you have the architecture running in a server, you can just do that:
+or if the architecture is already running in a remote server, you can just do that:
 
 ```sh
 
