@@ -161,13 +161,22 @@ pip3 install -r requeriments
 
 ```
 
-Now, we can finally run our example:
+Now, we can finally run our example locally:
 
 ```sh
 
 python3 segment.py
 
 ```
+
+or if you have the architecture running in a server, you can just do that:
+
+```sh
+
+python3 segment.py --server_ip SERVER_IP
+
+```
+
  If everything is okay, it should print something like this:
  
 ```sh
