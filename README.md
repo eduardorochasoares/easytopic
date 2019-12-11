@@ -43,7 +43,7 @@ Also, the processing pipeline of a video lecture in our architecture is given by
 ![workflow](workflow.png)
 
 ## Requirements
-All you need is [Docker](https://www.docker.com/) to run `easytopic`. To install it, just follow the guide for your OS:
+All you need is [Docker](https://www.docker.com/) and Docker Compose to run `easytopic`. To install it, just follow the guide for your OS:
 
 - [MacOS](https://docs.docker.com/docker-for-mac/install/)
 
@@ -52,7 +52,6 @@ All you need is [Docker](https://www.docker.com/) to run `easytopic`. To install
 - [Ubuntu](https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04)
 
 ## Running dockerized version
-
 
 
 ### **⚠️This guide is valid only to Unix-based distributions. If you have Windows, some commands may be different**
@@ -157,7 +156,7 @@ You can install them simply by running:
 
 ```sh
 
-pip3 install -r requeriments
+pip3 install -r requeriments.txt
 
 ```
 
