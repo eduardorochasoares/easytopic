@@ -7,7 +7,8 @@ import time
 from DAO.mongodb import MongoDB
 import ast
 import argparse
-
+API_REST_ADDRESS = None
+ENDPOINT = None
 def send_request(lecture):
     return json.loads(requests.post(API_REST_ADDRESS + ENDPOINT, files={'file': open(lecture, 'rb')}).content)['project_id']
 
