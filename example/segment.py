@@ -11,7 +11,7 @@ API_REST_ADDRESS = None
 ENDPOINT = None
 ip = None
 def send_request(lecture):
-    return json.loads(requests.post(API_REST_ADDRESS + ENDPOINT, files={'file': open(lecture, 'rb')}).content)['project_id']
+    return requests.post(API_REST_ADDRESS + ENDPOINT, files={'file': open(lecture, 'rb')}).json()['project_id']
 
 
 def check_job_done(project_id):
