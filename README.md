@@ -156,7 +156,7 @@ You can install them simply by running:
 
 ```sh
 
-pip3 install -r requeriments.txt
+pip3 install -r requirements.txt
 
 ```
 
